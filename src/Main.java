@@ -31,30 +31,10 @@ public class Main {
             students[i].setGrades(grades2);
         }
 
-        Student[] result = findWithAllGradesGreaterThan(students, 9);
-        System.out.println(Arrays.toString(result));
+
+        Printer result = new Printer(students);
+        result.print();
     }
 
-    private static Student[] findWithAllGradesGreaterThan(Student[] students, int targetGrade){
-        Student[] result = new Student[10];
-        int count = 0;
-        for(Student student : students){
-            int[] grades = student.getGrades();
-            if(isAllGreaterOrEqualThan(grades, targetGrade)){
-                result[count++] = student;
-            }
-        }
-        Student[] destination = new Student[count];
-        System.arraycopy(result, 0, destination, 0, count);
-        return destination;
-    }
 
-    private static boolean isAllGreaterOrEqualThan(int[] grades, int target){
-        for(int grade : grades){
-            if(grade < target){
-                return false;
-            }
-        }
-        return true;
-    }
 }
