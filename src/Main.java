@@ -31,9 +31,11 @@ public class Main {
             students[i].setGrades(grades2);
         }
 
+        StudentsRepository studentsGroup = new StudentsRepository(students);
 
-        Printer result = new Printer(students);
-        result.print();
+
+        Printer result = new Printer();
+        result.print(studentsGroup);
     }
 
 
